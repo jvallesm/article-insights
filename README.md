@@ -1,20 +1,17 @@
-# Article insights
-
 This document is a compilation of insightful articles about coding practices and
 design patterns. In order to persist the key takeaways after the reading, I'll
 write some conclusions for each article and add some linked resources.
 
-## Table of contents
-- [Article insights](#article-insights)
-  - [Table of contents](#table-of-contents)
-  - [Articles](#articles)
-    - [Retry strategies](#retry-strategies)
-      - [Discussion](#discussion)
-  - [Next in the list](#next-in-the-list)
+# Table of contents
+- [Table of contents](#table-of-contents)
+- [Articles](#articles)
+  - [Retry strategies](#retry-strategies)
+    - [Discussion](#discussion)
+- [Next in the list](#next-in-the-list)
 
-## Articles
+# Articles
 
-### [Retry strategies](https://encore.dev/blog/retries)
+## [Retry strategies](https://encore.dev/blog/retries)
 
 Usually clients will want to retry a failed request. The delay between requests
 is key to keep a good balance between providing a snappy user experience and
@@ -41,7 +38,7 @@ This article analyzes different strategies through interactive visualizations:
     randomize the delay, avoiding situations in which clients retry requests at
     the same time, even if the delay between retrials is high.
 
-#### Discussion
+### Discussion
 
 - How would the code snippet change if we wanted to retry only on certain HTTP
   codes?
@@ -49,7 +46,7 @@ This article analyzes different strategies through interactive visualizations:
   retry strategy. We might want to add a maximum retry count or a maximum delay
   in order to free that process.
 
-## Next in the list
+# Next in the list
 
 - [ ] [Hashing](https://samwho.dev/hashing/)
 - [ ] [Memory allocation](https://samwho.dev/memory-allocation/)
