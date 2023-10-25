@@ -86,6 +86,30 @@ This article analyzes different strategies through interactive visualizations:
   retry strategy. We might want to add a maximum retry count or a maximum delay
   in order to free that process.
 
+## [GopherCon 2018: Bryan C. Mills - Rethinking Classical Concurrency Patterns](https://www.youtube.com/watch?v=5zXAHh5tJqQ)
+
+Slides [here](https://drive.google.com/file/d/1nPdvhB0PutEJzdCq5ms6UI58dp50fcAN/view).
+
+- Async optimisations are subtle and involve an extra complexity.
+- Converting async <-> sync calls is [trivial](https://go.dev/play/p/FxSsaTToIHe).
+- Add concurrency on the caller side, and make it an internal detail.
+- Worker pool: don’t use waitgroups but channels (semaphore):
+
+```go
+sem := make(chan token, limit)
+for _, task := range hugeSlice {
+    sem <- token{}
+    go func(task Task) {
+        perform(task)
+        <-sem
+    }(task)
+}
+
+for n := limit; n > 0; n-- {
+    sem <- token{}
+}
+```
+
 ## [Google's Go style guide](https://google.github.io/styleguide/go/)
 
 - No `Get` in getters
