@@ -13,6 +13,7 @@ write some conclusions for each article and add some linked resources.
   - [Google's Go style guide](#googles-go-style-guide)
   - [The Best Go framework: no framework?](#the-best-go-framework-no-framework)
   - [Cohesion in Go](#cohesion-in-go)
+  - [Compiling Containers – Dockerfiles, LLVM and BuildKit](#compiling-containers--dockerfiles-llvm-and-buildkit)
   - [The Design of Everyday Things (Don Norman)](#the-design-of-everyday-things-don-norman)
     - [The Psychopathology of Everyday Things](#the-psychopathology-of-everyday-things)
 - [Next in the list](#next-in-the-list)
@@ -193,6 +194,21 @@ func NewUnauthorizedSubscribeHandler(logger Logger, metricsClient MetricsClient)
     }
 }
 ```
+
+## Compiling Containers – Dockerfiles, LLVM and BuildKit
+
+Source: https://www.docker.com/blog/compiling-containers-dockerfiles-llvm-and-buildkit
+
+- A docker image is made up of layers. Those layers form an immutable
+  filesystem.
+- Analogy: if an image is like an executable, a container is like a process. You
+  can run multiple containers from one image, and a running image isn't an image
+  at all but a container.
+- BuildKit would be then a compiler that goes from a Dockerfile and a build
+  context to a container image (instead of from source code to executable).
+- One significant way image building differs from compiling is this build
+  context. `docker build` takes a reference to the host filesystem to perform
+  actions such as `COPY`.
 
 ## The Design of Everyday Things (Don Norman)
 
