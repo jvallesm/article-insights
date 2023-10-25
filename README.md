@@ -9,6 +9,12 @@ write some conclusions for each article and add some linked resources.
     - [Leaking memory](#leaking-memory)
   - [Retry strategies](#retry-strategies)
     - [Discussion](#discussion)
+  - [Rethinking Classical Concurrency Patterns](#rethinking-classical-concurrency-patterns)
+  - [Google's Go style guide](#googles-go-style-guide)
+  - [The Best Go framework: no framework?](#the-best-go-framework-no-framework)
+  - [Cohesion in Go](#cohesion-in-go)
+  - [The Design of Everyday Things (Don Norman)](#the-design-of-everyday-things-don-norman)
+    - [The Psychopathology of Everyday Things](#the-psychopathology-of-everyday-things)
 - [Next in the list](#next-in-the-list)
 
 # Articles
