@@ -86,6 +86,17 @@ This article analyzes different strategies through interactive visualizations:
   retry strategy. We might want to add a maximum retry count or a maximum delay
   in order to free that process.
 
+## [Google's Go style guide](https://google.github.io/styleguide/go/)
+
+- No `Get` in getters
+  ([source](https://google.github.io/styleguide/go/decisions#getters))
+- No [line length](https://google.github.io/styleguide/go/guide#line-length)
+- No [util
+  package](https://google.github.io/styleguide/go/best-practices#util-packages)
+- Use [option
+  structs](https://google.github.io/styleguide/go/best-practices#option-structure)
+  for long lists of arguments.
+
 ## The Design of Everyday Things (Don Norman)
 
 ### The Psychopathology of Everyday Things
