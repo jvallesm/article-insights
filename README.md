@@ -86,6 +86,45 @@ This article analyzes different strategies through interactive visualizations:
   retry strategy. We might want to add a maximum retry count or a maximum delay
   in order to free that process.
 
+## The Design of Everyday Things (Don Norman)
+
+### The Psychopathology of Everyday Things
+
+> Two of the most important characteristics of good design are *discoverability*
+> and *understanding*. Discoverability: Is it possible to even figure out what
+> actions are possible and where and how to per- form them? Understanding: What
+> does it all mean? How is the product supposed to be used? What do all the
+> different controls do?
+
+In that sense, gRPC method signatures are (potentially) clearer than HTTP paths.
+
+> Services, lectures, rules and procedures, and the organizational structures of
+> businesses and governments do not have physical mechanisms, but their rules
+> of operation have to be designed, sometimes informally, sometimes precisely
+> recorded and specified.
+
+> It is very hard to remove features of a newly designed product that had
+> existed in an earlier version. It’s kind of like physical evolution. If a
+> feature is in the genome, and if that feature is not associated with any
+> negativity (i.e., no customers gripe about it), then the feature hangs on for
+> generations
+
+> It is interesting that things like the ‘R’ button on a desk telephone are
+> largely determined through examples. Somebody asks, 'What is the 'R' button
+> used for?@ and the answer is to give an example: "You can push 'R' to access
+> loudspeaker paging."
+> If nobody can think of an example, the feature is dropped. Designers are
+> pretty bright people, however. They can come up with a plausible-sounding
+> example for almost anything. Hence, you get features, many many features, and
+> these features hang on for a long time. The end result is complex interfaces
+> for essentially simple things.
+
+> Discoverability results from appropriate application of five fundamental
+> psychological concepts covered in the next few chapters: *affordances,
+> signifiers, constraints, mappings*, and *feedback*. But there is a sixth
+> principle, perhaps most important of all: the *conceptual model* of the
+> system. It is the conceptual model that provides true understanding.
+
 # Next in the list
 
 - [ ] [Hashing](https://samwho.dev/hashing/)
