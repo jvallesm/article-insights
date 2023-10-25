@@ -97,6 +97,17 @@ This article analyzes different strategies through interactive visualizations:
   structs](https://google.github.io/styleguide/go/best-practices#option-structure)
   for long lists of arguments.
 
+## [The Best Go framework: no framework?](https://threedots.tech/post/best-go-framework/)
+
+- Go is built around the Unix Philosophy, which favors building small
+  independent pieces of software that do one thing well (i.e. `cat example.txt |
+  sort | uniq`).
+- It’s easy to quickly lose all your time saved on the project bootstrap just to
+  fight with one framework limitation.
+- Investing in maintainability most usually pays off. Loosely coupled
+  architecture (e.g. being able to migrate one piece at a time) is a great way
+  to achieve it.
+
 ## The Design of Everyday Things (Don Norman)
 
 ### The Psychopathology of Everyday Things
