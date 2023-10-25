@@ -13,7 +13,9 @@ write some conclusions for each article and add some linked resources.
 
 # Articles
 
-## [Understanding Go's Stack and Heap](https://golang.howtos.io/understanding-go-s-stack-and-heap/)
+## Understanding Go's Stack and Heap
+
+Source: https://golang.howtos.io/understanding-go-s-stack-and-heap
 
 > The **stack** is a region of memory that is organized in
 > a last-in-first-out (LIFO) manner. It is used to store local variables,
@@ -51,7 +53,9 @@ write some conclusions for each article and add some linked resources.
   values are zeroed but the capacity is untouched
   ([source](https://teivah.medium.com/maps-and-memory-leaks-in-go-a85ebe6e7e69)).
 
-## [Retry strategies](https://encore.dev/blog/retries)
+## Retry strategies
+
+Source: https://encore.dev/blog/retries
 
 Usually clients will want to retry a failed request. The delay between requests
 is key to keep a good balance between providing a snappy user experience and
@@ -86,9 +90,10 @@ This article analyzes different strategies through interactive visualizations:
   retry strategy. We might want to add a maximum retry count or a maximum delay
   in order to free that process.
 
-## [GopherCon 2018: Bryan C. Mills - Rethinking Classical Concurrency Patterns](https://www.youtube.com/watch?v=5zXAHh5tJqQ)
+## Rethinking Classical Concurrency Patterns
 
-Slides [here](https://drive.google.com/file/d/1nPdvhB0PutEJzdCq5ms6UI58dp50fcAN/view).
+Source: https://www.youtube.com/watch?v=5zXAHh5tJqQ
+([slides](https://drive.google.com/file/d/1nPdvhB0PutEJzdCq5ms6UI58dp50fcAN/view))
 
 - Async optimisations are subtle and involve an extra complexity.
 - Converting async <-> sync calls is [trivial](https://go.dev/play/p/FxSsaTToIHe).
@@ -110,7 +115,9 @@ for n := limit; n > 0; n-- {
 }
 ```
 
-## [Google's Go style guide](https://google.github.io/styleguide/go/)
+## Google's Go style guide
+
+Source: https://google.github.io/styleguide/go
 
 - No `Get` in getters
   ([source](https://google.github.io/styleguide/go/decisions#getters))
@@ -121,7 +128,9 @@ for n := limit; n > 0; n-- {
   structs](https://google.github.io/styleguide/go/best-practices#option-structure)
   for long lists of arguments.
 
-## [The Best Go framework: no framework?](https://threedots.tech/post/best-go-framework/)
+## The Best Go framework: no framework?
+
+Source: https://threedots.tech/post/best-go-framework
 
 - Go is built around the Unix Philosophy, which favors building small
   independent pieces of software that do one thing well (i.e. `cat example.txt |
@@ -132,7 +141,9 @@ for n := limit; n > 0; n-- {
   architecture (e.g. being able to migrate one piece at a time) is a great way
   to achieve it.
 
-## [Cohesion in Go](https://threedots.tech/post/increasing-cohesion-in-go-with-generic-decorators/)
+## Cohesion in Go
+
+Source: https://threedots.tech/post/increasing-cohesion-in-go-with-generic-decorators
 
 - Highly cohesive code (a module or a function) is focused on a single purpose.
 - Decorators (aka middlewares) can be used not only in implementation details
