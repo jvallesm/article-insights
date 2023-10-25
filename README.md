@@ -108,6 +108,51 @@ This article analyzes different strategies through interactive visualizations:
   architecture (e.g. being able to migrate one piece at a time) is a great way
   to achieve it.
 
+## [Cohesion in Go](https://threedots.tech/post/increasing-cohesion-in-go-with-generic-decorators/)
+
+- Highly cohesive code (a module or a function) is focused on a single purpose.
+- Decorators (aka middlewares) can be used not only in implementation details
+  but in the application logic. They isolate the purpose and ease testability.
+
+```go
+type subscribeAuthorizationDecorator struct {
+    base SubscribeHandler
+}
+
+func (d subscribeAuthorizationDecorator) Handle(ctx context.Context, cmd Subscribe) error {
+    user, err := UserFromContext(ctx)
+    if err != nil {
+        return err
+    }
+
+    if !user.Active {
+        return errors.New("the user's account is not active")
+    }
+
+    return d.base.Handle(ctx, cmd)
+}
+```
+
+- From Go 1.18, we can reduce the boilerplate by using generics:
+
+```go
+type CommandHandler[C any] interface {
+    Handle(ctx context.Context, cmd C) error
+}
+
+// ...
+
+func NewUnauthorizedSubscribeHandler(logger Logger, metricsClient MetricsClient) CommandHandler[Subscribe] {
+    return loggingDecorator[Subscribe]{
+        base: metricsDecorator[Subscribe]{
+            base:   SubscribeHandler{},
+            client: metricsClient,
+        },
+        logger: logger,
+    }
+}
+```
+
 ## The Design of Everyday Things (Don Norman)
 
 ### The Psychopathology of Everyday Things
