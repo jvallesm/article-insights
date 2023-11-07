@@ -2,23 +2,6 @@ This document is a compilation of insightful articles about coding practices and
 design patterns. In order to persist the key takeaways after the reading, I'll
 write some conclusions for each article and add some linked resources.
 
-# Table of contents
-- [Table of contents](#table-of-contents)
-- [Articles](#articles)
-  - [Understanding Go's Stack and Heap](#understanding-gos-stack-and-heap)
-    - [Leaking memory](#leaking-memory)
-  - [Retry strategies](#retry-strategies)
-    - [Discussion](#discussion)
-  - [Rethinking Classical Concurrency Patterns](#rethinking-classical-concurrency-patterns)
-  - [Google's Go style guide](#googles-go-style-guide)
-  - [The Best Go framework: no framework?](#the-best-go-framework-no-framework)
-  - [Cohesion in Go](#cohesion-in-go)
-  - [Compiling Containers – Dockerfiles, LLVM and BuildKit](#compiling-containers--dockerfiles-llvm-and-buildkit)
-  - [The Design of Everyday Things (Don Norman)](#the-design-of-everyday-things-don-norman)
-    - [The Psychopathology of Everyday Things](#the-psychopathology-of-everyday-things)
-- [Less is exponentially more](#less-is-exponentially-more)
-- [Next in the list](#next-in-the-list)
-
 # Articles
 
 ## Understanding Go's Stack and Heap
