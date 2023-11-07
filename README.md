@@ -16,6 +16,7 @@ write some conclusions for each article and add some linked resources.
   - [Compiling Containers – Dockerfiles, LLVM and BuildKit](#compiling-containers--dockerfiles-llvm-and-buildkit)
   - [The Design of Everyday Things (Don Norman)](#the-design-of-everyday-things-don-norman)
     - [The Psychopathology of Everyday Things](#the-psychopathology-of-everyday-things)
+- [Less is exponentially more](#less-is-exponentially-more)
 - [Next in the list](#next-in-the-list)
 
 # Articles
@@ -249,6 +250,52 @@ In that sense, gRPC method signatures are (potentially) clearer than HTTP paths.
 > principle, perhaps most important of all: the *conceptual model* of the
 > system. It is the conceptual model that provides true understanding.
 
+# Less is exponentially more
+
+Source: https://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html
+
+About why Go programmers tend to come from languages like Ruby or Python rather
+than C++. An opinionated and oversimplified (in a self-aware way) quote:
+
+>  Python and Ruby programmers come to Go because they don't have to surrender
+>  much expressiveness, but gain performance and get to play with concurrency.
+>
+> C++ programmers don't come to Go because they have fought hard to gain
+> exquisite control of their programming domain, and don't want to surrender any
+> of it. To them, software isn't just about getting the job done, it's about
+> doing it a certain way.
+>
+> The issue, then, is that Go's success would contradict their world view.
+
+About the lack of generics (which are present from Go 1.18 but still relevant as
+they haven't been necessary for Go's success as a language):
+
+> (...) what it [someone's doubt about being able to program without generics]
+> says is that types are the way to lift that burden [writing containers like
+> lists of ints and maps of strings]. Types. Not polymorphic functions or
+> language primitives or helpers of other kinds, but types.
+
+> I believe that's a preposterous way to think about programming. What matters
+> isn't the ancestor relations between things but what they can do for you.
+
+> If C++ and Java are about type hierarchies and the taxonomy of types, Go is
+> about composition. (...). It is a language of composition and coupling.
+>
+> The obvious example is the way interfaces give us the composition of
+> components. It doesn't matter what that thing is, if it implements method `M`
+> I can just drop it in here.
+>
+> Another important example is how concurrency gives us the composition of
+> independently executing computations.
+
+About "programming in the large":
+
+> Go was designed to help write big programs, written and maintained by big
+> teams. (...) Big software needs methodology to be sure, but not nearly as much
+> as it needs strong dependency management and clean interface abstraction and
+> superb documentation tools, none of which is served well by C++ (although Java
+> does noticeably better).
+
 # Next in the list
 
 - [ ] [Hashing](https://samwho.dev/hashing/)
@@ -262,7 +309,6 @@ In that sense, gRPC method signatures are (potentially) clearer than HTTP paths.
 - [ ] [TotT: Risk-driven Testing](https://testing.googleblog.com/2014/05/testing-on-toilet-risk-driven-testing.html)
 - [ ] [TotT: Change-detector Tests Considered Harmful](https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html)
 - [ ] [Go and Dogma](https://research.swtch.com/dogma)
-- [ ] [Less is exponentially more](https://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html)
 - [ ] [Esmerelda’s Imagination](https://commandcenter.blogspot.com/2011/12/esmereldas-imagination.html)
 - [ ] [Regular expressions for parsing](https://commandcenter.blogspot.com/2011/08/regular-expressions-in-lexing-and.html)
 - [ ] [Gofmt’s style is no one’s favorite, yet Gofmt is everyone’s favorite](https://www.youtube.com/watch?v=PAAkCSZUG1c&t=8m43s)
