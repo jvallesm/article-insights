@@ -44,6 +44,86 @@ Source: https://golang.howtos.io/understanding-go-s-stack-and-heap
   values are zeroed but the capacity is untouched
   ([source](https://teivah.medium.com/maps-and-memory-leaks-in-go-a85ebe6e7e69)).
 
+## Go slice internals
+
+Sources:
+
+- https://go.dev/blog/slices-intro
+- https://www.dolthub.com/blog/2023-10-20-golang-pitfalls-3
+
+In Go, slices are built on top of arrays. Therefore, some clarifications are
+needed:
+
+> Go’s arrays are values. An array variable denotes the entire array; it is not
+> a pointer to the first array element (as would be the case in C). This means
+> that when you assign or pass around an array value you will make a copy of its
+> contents.
+
+The zero value of an array is a ready-to-use array whose elements are themselves
+zeroed:
+
+```go
+var a [4]int
+fmt.Println(a[2] == 0) // true
+```
+
+A slice is a descriptor of an array segment. From the [`slice`
+definition](https://github.com/golang/go/blob/abf84221/src/runtime/slice.go#L15):
+
+```go
+type slice struct {
+    array unsafe.Pointer
+    len   int
+    cap   int
+}
+```
+
+Where `len` is the slice length and `cap` is its capacity or maximum length.
+
+How slices work with their underlying arrays:
+
+- Slicing an array doesn't copy its values.
+- The `append` function appends the elements x to the end of the slice s, and
+  grows the slice if a greater capacity is needed.
+  - If the capacity doesn't need to be touched, the value is set in the
+    underlying array and `len` is updated.
+  - If the capacity is increased, the underlying array is copied into a larger
+    one and the reference to the pointer (along with `len` and `cap`) is
+    updated.
+
+### Gotchas
+
+> The full array will be kept in memory until it is no longer referenced.
+> Occasionally this can cause the program to hold all the data in memory when
+> only a small piece of it is needed.
+
+```go
+func CopyDigits(filename string) []byte {
+    b, _ := ioutil.ReadFile(filename)
+    b = digitRegexp.Find(b)
+
+    // If we don't make this copy, unnecessary data in memory will be
+    // referenced.
+    c := make([]byte, len(b))
+    copy(c, b)
+    return c
+}
+```
+
+Also, reusing a slice passed to `append` as an argument might be dangerous when
+we aren't aware of the slice internals:
+
+```go
+sliceA := append([]int{1, 2}, 3)
+sliceB := append(sliceA, 4)
+sliceC := append(sliceA, 5)
+sliceC[0] = 0
+
+fmt.Println(sliceA) // prints [0 2 3]
+fmt.Println(sliceB) // prints [0 2 3 5]
+fmt.Println(sliceC) // prints [0 2 3 5]
+```
+
 ## Retry strategies
 
 Source: https://encore.dev/blog/retries
