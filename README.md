@@ -161,6 +161,27 @@ This article analyzes different strategies through interactive visualizations:
   retry strategy. We might want to add a maximum retry count or a maximum delay
   in order to free that process.
 
+## Load Balancing
+
+Source: https://samwho.dev/load-balancing
+
+- **Round Robin** sends a request to each server **in turn**. Good when servers
+  are equally powerful and requests are equally expensive.
+- These conditions seldom happen in the real world. To address variance in
+  request cost or server power, we can add a **request queue** with the trade-off of
+  increasing the response latency.
+- **Weighted Round Robin** assigns a weight to each server, modifying the
+  probability of receiving a request. This weight can be assigned manually (if
+  the power of each server is known) or dynamically (e.g. by comparing the
+  latencies of the last N requests).
+- In the **Least Connections** algorithm the load balancer leverages the
+  knowledge of the open connections in each server and sends the request to the
+  server with the least work. It's simple to implement and performs well with
+  variance. Broadly, it is optimized for avoiding dropped requests at the cost
+  of a slightly higher latency than Weighted Round Robin.
+- This algorithm can be optimized for latency by adding the latency of the last
+  N requests in each server.
+
 ## Rethinking Classical Concurrency Patterns
 
 Source: https://www.youtube.com/watch?v=5zXAHh5tJqQ
@@ -363,7 +384,6 @@ About "programming in the large":
 
 - [ ] [Hashing](https://samwho.dev/hashing/)
 - [ ] [Memory allocation](https://samwho.dev/memory-allocation/)
-- [ ] [Load balancing](https://samwho.dev/load-balancing/)
 - [ ] [Google Go style guide](https://google.github.io/styleguide/go/)
 - [ ] **[GopherCon 2021: Robert Griesemer & Ian Lance Taylor - Generics!](https://www.youtube.com/watch?v=Pa_e9EeCdy8&t=1250s)**
 - [ ] [Go Proverbs](https://go-proverbs.github.io/)
